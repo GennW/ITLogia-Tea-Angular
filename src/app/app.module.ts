@@ -3,10 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { TypingsDirective } from './typings.directive';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TypingsDirective
   ],
   imports: [
     BrowserModule,
