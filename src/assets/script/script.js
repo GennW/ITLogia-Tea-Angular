@@ -60,24 +60,24 @@ Accordeon должен быть выполнен с помощью jQueryUI. О�
 */
 
 // wow js что бы срабатывала анимация последовательно при проктутке к болокам
-new WOW({
-  animateClass: 'animate__animated',
-}).init();
+// new WOW({
+//   animateClass: 'animate__animated',
+// }).init();
 
 
 //slick carousel 
 
-$(document).ready(function () {
-    $('.carousel-slick').slick({
-        dots: true,
-        infinite: true,
-        speed: 500,
-        fade: true,
-        cssEase: 'linear',
-        prevArrow: '<a class="slick-prev"></a>',
-        nextArrow: '<a class="slick-next"></a>',
-    });
-});
+// $(document).ready(function () {
+//     $('.carousel-slick').slick({
+//         dots: true,
+//         infinite: true,
+//         speed: 500,
+//         fade: true,
+//         cssEase: 'linear',
+//         prevArrow: '<a class="slick-prev"></a>',
+//         nextArrow: '<a class="slick-next"></a>',
+//     });
+// });
 
 //accordion jQuery UI
 
@@ -98,13 +98,6 @@ $('.popup-img').magnificPopup({
   }
 });
 
-// валидация форм
-
-// const order = document.getElementsByClassName('order')[0];
-// const newBlockText = document.createElement('div');
-// newBlockText.className = 'text text-center d-none';
-// newBlockText.innerHTML = '<h2>Спасибо за заказ!</h2>';
-// order.appendChild(newBlockText);
 
 const newBlock = $('<div></div>').addClass('text text-center d-none').html('<h2>Спасибо за заказ!</h2>').appendTo('.order');
 //новый div с помощью $('<div></div>').
@@ -145,10 +138,6 @@ $(document).ready(function () {
   });
   
 
-
-
-
-
 $('#inputZip').keydown((e) => {
     var keyCode = e.which;
     if (keyCode < 48 || keyCode > 57) {
@@ -159,39 +148,4 @@ $('#inputZip').keydown((e) => {
     }
 
 })
-
-
-
-// $(document).ready(function () {
-//     $("form").submit(function (event) {
-//       event.preventDefault();
-//       let isFormValid = true; // Флаг для валидности формы
-//       let inputZipValue = $("#inputZip").val(); // Получаем значение поля inputZip
-  
-//       $(".form-control:not(:first)").each(function (index, element) {
-//         let value = $(element).val();
-//         console.log(index, element, value);
-  
-//         // Проверка на пустые поля
-//         if (value === '') {
-//           isFormValid = false;
-//           return false; // Прерываем цикл, если найдено пустое поле
-//         }
-//       });
-  
-//       // Дополнительная проверка поля inputZip
-//       if (inputZipValue.length !== 6 || isNaN(inputZipValue)) {
-//         isFormValid = false;
-//       }
-  
-//       if (!isFormValid) {
-//         alert("Пожалуйста, заполните все поля и убедитесь, что поле индекса содержит ровно шесть цифр.");
-//         return;
-//       }
-  
-    //   $("form").hide();
-    //   $('h2:eq(2)').empty();
-    //   newBlock.removeClass('d-none');
-//     });
-//   });
 

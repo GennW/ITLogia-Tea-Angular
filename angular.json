@@ -17,6 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            
             "outputPath": "dist/tea-site-angular",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -28,9 +29,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "src/assets/css/bootstrap.min.css"
+              "src/assets/css/bootstrap.min.css",
+              "src/styles.scss"
             ],
             "scripts": [
               "src/assets/script/jquery-3.7.0.min.js",
