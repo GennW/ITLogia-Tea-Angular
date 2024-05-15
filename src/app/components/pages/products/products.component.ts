@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ProductType } from '../../types/product.type';
 
 @Component({
   selector: 'app-products',
@@ -23,9 +25,10 @@ export class ProductsComponent implements OnInit {
 
   ]
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
+
   }
 
 }

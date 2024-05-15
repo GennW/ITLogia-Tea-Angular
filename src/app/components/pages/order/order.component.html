@@ -1,40 +1,127 @@
 <section class="order container py-3 pb-4" style="max-width: 40rem">
     <h2 class="text-center fw-bold pt-3 mb-5">Сделать заказ</h2>
-    <form class="row g-3 wow animate__heartBeat">
+    <form class="row g-3 wow animate__heartBeat" [formGroup]="orderForm" (ngSubmit)="makeOrder()">
         <div class="col-md-4">
             <label for="inputCity" class="form-label">Товар</label>
-            <input type="text" class="form-control" id="inputCity" />
+            <input type="text" class="form-control" id="inputCity"
+            formControlName="product" />
           </div>
           <div class="col-8">
             <label for="inputZip" class="form-label">Комментарий</label>
-            <input type="text" class="form-control" id="inputZip" />
+            <input type="text" class="form-control" id="inputZip" 
+            formControlName="comment"/>
           </div>
       <div class="col-md-4">
-        <label for="inputName" class="form-label">Имя</label>
-        <input type="text" class="form-control" id="inputName" />
+        <label for="inputName" class="form-label"
+        [class]="{'text-danger': name?.invalid && (name?.dirty || name?.touched)}">
+        Имя</label>
+        <input type="text" class="form-control" id="inputName" 
+        formControlName="name"
+        [class]="{'border-danger': name?.invalid && (name?.dirty || name?.touched)}"/>
+      
+        <div *ngIf="name?.invalid && (name?.dirty || name?.touched)">
+          <div class="text-danger" *ngIf="name?.errors?.['required']">
+            Name is required
+          </div>
+          <div class="text-danger" *ngIf="name?.errors?.['pattern']">
+            Name is incorrect.
+          </div>
+        </div>
+      
       </div>
       <div class="col-md-4">
-        <label for="inputSubname" class="form-label">Фамилия</label>
-        <input type="text" class="form-control" id="inputSubname" />
+        <label for="inputSubname" class="form-label"
+        [class]="{'text-danger': last_name?.invalid && (last_name?.dirty || last_name?.touched)}"
+        >Фамилия</label>
+        <input type="text" class="form-control" id="inputSubname" 
+        formControlName="last_name" 
+        [class]="{'border-danger': last_name?.invalid && (last_name?.dirty || last_name?.touched)}"/>
+      
+        <div *ngIf="last_name?.invalid && (last_name?.dirty || last_name?.touched)">
+          <div class="text-danger" *ngIf="last_name?.errors?.['required']">
+            LastName is required
+          </div>
+          <div class="text-danger" *ngIf="last_name?.errors?.['pattern']">
+            LastName is incorrect.
+          </div>
+        </div>
+      
       </div>
       <div class="col-md-4">
-        <label for="inputPhone" class="form-label">Телефон</label>
-        <input type="phone" class="form-control" id="inputPhone" />
+        <label for="inputPhone" class="form-label"
+        [class]="{'text-danger': phone?.invalid && (phone?.dirty || phone?.touched)}">
+        Телефон</label>
+        <input type="phone" class="form-control" id="inputPhone" 
+        formControlName="phone" 
+        [class]="{'border-danger': phone?.invalid && (phone?.dirty || phone?.touched)}"/>
+      
+        <div *ngIf="phone?.invalid && (phone?.dirty || phone?.touched)">
+          <div class="text-danger" *ngIf="phone?.errors?.['required']">
+            Phone is required
+          </div>
+          <div class="text-danger" *ngIf="phone?.errors?.['pattern']">
+            Phone is incorrect.
+          </div>
+        </div>
+      
       </div>
       <div class="col-md-6">
-        <label for="inputCity" class="form-label">Страна</label>
-        <input type="text" class="form-control" id="inputCity" />
+        <label for="inputCity" class="form-label"
+        [class]="{'text-danger': counrty?.invalid && (counrty?.dirty || counrty?.touched)}">
+        Страна</label>
+        <input type="text" class="form-control" id="inputCity" 
+        formControlName="counrty"
+        [class]="{'border-danger': counrty?.invalid && (counrty?.dirty || counrty?.touched)}"/>
+      
+        <div *ngIf="counrty?.invalid && (counrty?.dirty || counrty?.touched)">
+          <div class="text-danger" *ngIf="counrty?.errors?.['required']">
+            counrty is required
+          </div>
+          <div class="text-danger" *ngIf="counrty?.errors?.['pattern']">
+            counrty is incorrect.
+          </div>
+        </div>
+      
       </div>
       <div class="col-6">
-        <label for="inputZip" class="form-label">Индекс</label>
-        <input type="text" class="form-control" id="inputZip" />
+        <label for="inputZip" class="form-label"
+        [class]="{'text-danger': zip?.invalid && (zip?.dirty || zip?.touched)}">
+        Индекс</label>
+        <input type="text" class="form-control" id="inputZip" 
+        formControlName="zip"
+        [class]="{'border-danger': zip?.invalid && (zip?.dirty || zip?.touched)}"/>
+      
+        <div *ngIf="zip?.invalid && (zip?.dirty || zip?.touched)">
+          <div class="text-danger" *ngIf="zip?.errors?.['required']">
+            zip is required
+          </div>
+          <div class="text-danger" *ngIf="zip?.errors?.['pattern']">
+            zip is incorrect.
+          </div>
+        </div>
+      
       </div>
       <div class="col-12">
-        <label for="inputAddress2" class="form-label">Адрес</label>
-        <input type="text" class="form-control" id="inputAddress2" />
+        <label for="inputAddress2" class="form-label"
+        [class]="{'text-danger': address?.invalid && (address?.dirty || address?.touched)}">
+        Адрес</label>
+        <input type="text" class="form-control" id="inputAddress2" 
+        formControlName="address"
+        [class]="{'border-danger': address?.invalid && (address?.dirty || address?.touched)}"/>
+      
+        <div *ngIf="address?.invalid && (address?.dirty || address?.touched)">
+          <div class="text-danger" *ngIf="address?.errors?.['required']">
+            address is required
+          </div>
+          <div class="text-danger" *ngIf="address?.errors?.['pattern']">
+            address is incorrect.
+          </div>
+        </div>
+      
       </div>
       <div class="col-12">
-        <button type="submit" class="btn btn-primary hvr-pulse-shrink">
+        <button type="submit" class="btn btn-primary hvr-pulse-shrink"
+        >
           Отправить
         </button>
       </div>
