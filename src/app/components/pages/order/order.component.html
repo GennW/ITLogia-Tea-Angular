@@ -1,5 +1,6 @@
 <section class="order container py-3 pb-4" style="max-width: 40rem">
-    <h2 class="text-center fw-bold pt-3 mb-5">Сделать заказ</h2>
+  <ng-container *ngIf="!orderSuccess; else orderSuccessTemplate"> 
+  <h2 class="text-center fw-bold pt-3 mb-5">Сделать заказ</h2>
     <form class="row g-3 wow animate__heartBeat" [formGroup]="orderForm" (ngSubmit)="makeOrder()">
         <div class="col-md-4">
             <label for="inputCity" class="form-label">Товар</label>
@@ -120,10 +121,17 @@
       
       </div>
       <div class="col-12">
-        <button type="submit" class="btn btn-primary hvr-pulse-shrink"
-        >
-          Отправить
-        </button>
+        <button type="submit" class="btn btn-primary hvr-pulse-shrink" [disabled]="isButtonDisabled">Отправить</button>
+
+        <div class="col-12" *ngIf="showError">
+          <p class="text-left text-danger">Произошла ошибка showError. Попробуйте еще раз.</p>
+        </div>
+
       </div>
     </form>
+  </ng-container> 
+  <ng-template #orderSuccessTemplate>
+    <p class="text-center d-flex align-items-center justify-content-center">Спасибо за заказ!</p>
+  </ng-template>
+    
   </section>

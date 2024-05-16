@@ -7,5 +7,7 @@ https://itlogia.ru/study/front/lesson/288
 49:45 реактивные формы видео Формы
 https://itlogia.ru/study/front/lesson/291
 
-34:00 запрос post на бекенд видео Работа с HTTP
+34:00 запрос post на бекенд 
+29:15 запрос на один товар
+видео Работа с HTTP
 https://itlogia.ru/study/front/lesson/292

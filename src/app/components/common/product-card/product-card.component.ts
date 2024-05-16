@@ -16,6 +16,7 @@ export class ProductCardComponent implements OnInit {
       image: '',
       title: '',
       description: '',
+      price: 0
     };
   }
 
