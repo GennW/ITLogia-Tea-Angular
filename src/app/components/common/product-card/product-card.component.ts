@@ -8,6 +8,7 @@ import { ProductType } from '../../types/product.type';
 })
 export class ProductCardComponent implements OnInit {
   @Input() product: ProductType;
+  showFullDescription: boolean = false;
 
   constructor() {
     this.product = {
@@ -18,5 +19,7 @@ export class ProductCardComponent implements OnInit {
     };
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    
+  }
 }

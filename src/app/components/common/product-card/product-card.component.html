@@ -1,12 +1,18 @@
 <div class="col-xl-auto">
     <div class="card mx-auto" style="max-width: 26rem;">
-        <a href="assets/img/+1.jpg" class="popup-img">
-            <img src="assets/img/{{product.image}}" class="card-img-top" alt="img">
-        </a>
-        <div class="card-body">
-            <h5 class="card-title fw-bold fs-5">{{product.title}}</h5>
-            <p class="card-text">{{product.description}}</p>
-            <a [routerLink]="['/products', product.id]" class="btn btn-primary px-5 hvr-bubble-float-top">Подробнее</a>
+      <a href="assets/img/+1.jpg" class="popup-img">
+        <img src="{{product.image}}" class="card-img-top" alt="img">
+      </a>
+      <div class="card-body">
+        <h5 class="card-title fw-bold fs-5">{{product.title}}</h5>
+        <p *ngIf="product.description.length <= 150" class="card-text">{{product.description}}</p>
+        <p *ngIf="product.description.length > 150" class="card-text" (click)="showFullDescription = !showFullDescription">
+          {{product.description | slice:0:150}}...
+        </p>
+        <div *ngIf="product.description.length > 150" class="scrollable-description" [style.display]="showFullDescription ? 'block' : 'none'">
+          {{product.description}}
         </div>
+        <a [routerLink]="['/products', product.id]" class="btn btn-primary px-5 hvr-bubble-float-top">Подробнее</a>
+      </div>
     </div>
-</div>
+  </div>

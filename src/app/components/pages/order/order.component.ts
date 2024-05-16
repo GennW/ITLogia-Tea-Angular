@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { OrderFormType } from '../../types/orderForm.type ';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-order',
@@ -53,17 +54,16 @@ export class OrderComponent implements OnInit {
     return this.orderForm.get('address');
   }
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private activeRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
-    // this.http.get<OrderFormType>('https://testologia.site/order-tea')
-    // .subscribe(data => {
-    //   console.log(data);
-    // })
+    this.activeRoute.queryParams.subscribe(data => {
+      console.log(data)
+    })
   }
 
   makeOrder() {
-    this.http.post<{success: number}>('https://testologia.site/order-tea', this.orderData)
+    this.http.post<{success: number}>('https://testologia.ru/order-tea', this.orderData)
       .subscribe(response => {
         if (response.success === 1) {
           // Успешный запрос

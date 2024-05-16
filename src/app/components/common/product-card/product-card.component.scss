@@ -1,0 +1,16 @@
+.text-overflow {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+.text-overflow:hover {
+    overflow: auto;
+    white-space: normal;
+    max-height: 5em; /* Выберите желаемую высоту для скролла */
+}
+
+.scrollable-description {
+    max-height: 100px;
+    overflow-y: auto;
+  }

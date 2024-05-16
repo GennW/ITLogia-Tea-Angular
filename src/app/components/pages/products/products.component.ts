@@ -9,25 +9,15 @@ import { ProductType } from '../../types/product.type';
 })
 export class ProductsComponent implements OnInit {
 
-  public products = [
-    {
-      id: 1,
-      image: '+1.jpg',
-      title: 'Детокс чай лайм',
-      description: 'Великолепный чай внесет в вашу жизнь яркие краски и вкус расслабления'
-    },    
-    {
-      id: 2,
-      image: '+2.jpg',
-      title: 'Ягодный чай',
-      description: 'Нотки ягод позволят вам расслабиться и насладиться великолепием этого чая'
-    },
-
-  ]
+  public products: ProductType[] = []
 
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
+    this.http.get<ProductType[]>('https://testologia.ru/tea')
+    .subscribe(data => {
+      this.products = data
+    })
 
   }
 
