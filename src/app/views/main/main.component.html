@@ -1,0 +1,90 @@
+<section class="carousel container py-5" id="main">
+  <div class="carousel-slick wow animate__pulse">
+    <a>
+      <img class="img-fluid" src="assets/img/slider1.png" alt="img" />
+    </a>
+    <!-- <a>
+            <img class="img-fluid" src="assets/img/slider2.png" alt="img">
+        </a>
+        <a>
+            <img class="img-fluid" src="assets/img/slider3.png" alt="img">
+        </a> -->
+  </div>
+</section>
+
+<section class="faq container" style="max-width: 55rem">
+  <h2 class="text-center fw-bold pt-3 mb-5">
+    Ответы на часто задаваемые вопросы
+  </h2>
+  <ngb-accordion #acc="ngbAccordion" activeIds="config-panel-one">
+
+      <ngb-panel
+        title="Собираете ли вы подарочные боксы?"
+        id="config-panel-one"
+      >
+        <ng-template ngbPanelContent>
+          Да, у нас есть такая услуга. Мы можем собрать подарочный бокс на любой
+          вкус, объем и стоимость!
+        </ng-template>
+      </ngb-panel>
+      <!-- <h3 class="mb-3 p-3 fw-bolder"></h3> -->
+
+      <!-- <div class="py-1 px-3">
+      </div> -->
+      <ngb-panel title="Сколько у вас разновидностей чая?">
+        <ng-template ngbPanelContent>
+          Существует шесть классических видов чая в зависимости от типа
+          ферментации чайных листьев и степени окисления — процента чайного
+          листа, который подвергается этому процессу
+        </ng-template>
+      </ngb-panel>
+
+      <ngb-panel title="В какой срок осуществляется доставка?">
+        <ng-template ngbPanelContent>
+          Перевозчики обязаны осуществлять доставку грузов в сроки,
+          установленные договором перевозки груза, а в случае, если указанные
+          сроки в договоре перевозки ...
+        </ng-template>
+      </ngb-panel>
+
+      <ngb-panel title="У вас обновляется ассортимент?">
+        <ng-template ngbPanelContent>
+          Обновлени всех категорий товаров - один, два раза в неделю. Частичное
+          добавление товара - каждый день.
+        </ng-template>
+      </ngb-panel>
+
+      <ngb-panel title="Какого объема у вас пачки чая?">
+        <ng-template ngbPanelContent>
+          Объем пачки небольшой, чай испортиться не успеет (при условии, что его
+          правильно хранят), а покупатель может визуально оценить качество
+        </ng-template>
+      </ngb-panel>
+  </ngb-accordion>
+</section>
+
+<!-- Модальное окно с текстом "Посмотрите наши чайные коллекции" и кнопкой "Закрыть" -->
+<ng-template #popup let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">
+      Посмотрите наши чайные коллекции
+    </h4>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    ></button>
+  </div>
+
+  <div class="modal-body">Информация о чайных коллекциях!</div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-outline-dark"
+      (click)="modal.close('Save click')"
+    >
+      Закрыть
+    </button>
+  </div>
+</ng-template>

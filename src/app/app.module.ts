@@ -3,36 +3,27 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TypingsDirective } from './typings.directive';
-import { HeaderComponent } from './components/common/header/header.component';
-import { FooterComponent } from './components/common/footer/footer.component';
-import { ProductsComponent } from './components/pages/products/products.component';
-import { OrderComponent } from './components/pages/order/order.component';
-import { ProductComponent } from './components/pages/product/product.component';
-import { MainComponent } from './components/pages/main/main.component';
-import { ProductCardComponent } from './components/common/product-card/product-card.component';
-import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { MainModule } from './views/main/main.module';
+import { OrderModule } from './views/order/order.module';
+import { SharedModule } from './shared/shared.module';
+import { ProductsModule } from './views/products/products.module';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    TypingsDirective,
-    HeaderComponent,
-    FooterComponent,
-    MainComponent,
-    ProductsComponent,
-    OrderComponent,
-    ProductComponent,
-    ProductCardComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+    ProductsModule,
+    MainModule,
+    OrderModule,
+    SharedModule,
+
     AppRoutingModule,
-    ReactiveFormsModule,
-    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

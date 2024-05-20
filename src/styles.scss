@@ -48,12 +48,12 @@ body {
 
 .slick-next, .slick-next:hover {
     right: 14px;
-    background-image: url('../assets/img/arrowRight.svg');
+    background-image: url('../src/assets/img/arrowRight.svg');
 }
 
 .slick-prev, .slick-prev:hover {
     left: 14px;
-    background-image: url('../assets/img/arrowLeft.svg');
+    background-image: url('../src/assets/img/arrowLeft.svg');
 
 }
 
@@ -78,20 +78,21 @@ body {
 .ui-icon, .ui-icon:hover {
     background-position: unset;
 
-    background-image: url('../assets/img/arrow.svg');
+    background-image: url('../src/assets/img/arrow.svg');
     float: right;
     width: 22px;
     height: 22px;
 }
 
 .ui-state-active .ui-icon, .ui-button:active .ui-icon {
-    background-image: url('../assets/img/arrow.svg');
+    background-image: url('../src/assets/img/arrow.svg');
     transform: rotate(180deg);
 
 }
 
 .ui-state-hover .ui-icon {
-    background-image: url('../assets/img/arrow.svg');
+    // background-image: url('../assets/img/arrow.svg');
+    background-image: url('../src/assets/img/arrow.svg');
 
 }
 
@@ -133,3 +134,6 @@ body {
         transform: scale(0.5);
     }
 }
+/* Importing Bootstrap SCSS file. */
+@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
