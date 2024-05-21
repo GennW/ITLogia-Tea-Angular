@@ -13,6 +13,9 @@ export class HeaderComponent implements OnInit {
   constructor(private product: ProductService, private router: Router) { }
 
   ngOnInit(): void {
+    this.product.search.subscribe((searchQuery: string) => {
+      this.search = searchQuery;
+    });
   }
 
   handleSearch() {

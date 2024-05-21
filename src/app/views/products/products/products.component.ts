@@ -10,29 +10,37 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProductsComponent implements OnInit {
   public products: ProductType[] = [];
-  filteredProducts: ProductType[] = [];
+  // filteredProducts: ProductType[] = [];
   showNoResultsMessage: boolean = false;
+  showResultsMessage: boolean = false;
+  search = '';
 
-  constructor(private productService: ProductService, private route: ActivatedRoute) {}
+  constructor(private productService: ProductService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.productService.getProducts().subscribe(products => {
-      this.products = products;
-      this.route.queryParams.subscribe(params => {
-        const search = params['search'];
-        if (search) {
-          this.filterProducts(search);
-        } else {
-          this.filteredProducts = this.products;
-        }
-      });
+
+    this.route.queryParams.subscribe(params => {
+      this.search = params['search'] || '';
+      this.productService.currentSearchQuery = this.search || '';
+      if (this.search) {
+        this.productService.getProducts(this.search).subscribe(products => {
+          this.products = products;
+          this.showResultsMessage = true;
+        });
+      } else {
+        this.productService.getProducts().subscribe(products => {
+          this.products = products;
+          this.showResultsMessage = false;
+        });
+      }
     });
+
   }
 
-  filterProducts(search: string) {
-    this.filteredProducts = this.products.filter(product =>
-      product.description.toLowerCase().includes(search.toLowerCase())
-    );
-    this.showNoResultsMessage = this.filteredProducts.length === 0;
-  }
+  // filterProducts(search: string) {
+  //   this.filteredProducts = this.products.filter(product =>
+  //     product.description.toLowerCase().includes(search.toLowerCase())
+  //   );
+  //   this.showNoResultsMessage = this.filteredProducts.length === 0;
+  // }
 }

@@ -1,5 +1,6 @@
 <section class="main mb-5" id="products">
-    <h2 id="adv" class="text-center fw-bold mb-5">Наши чайные коллекции</h2>
+    <h2 *ngIf="!showResultsMessage" id="adv" class="text-center fw-bold mb-5">Наши чайные коллекции</h2>
+    <h2 *ngIf="showResultsMessage" id="adv" class="text-center fw-bold mb-5">Результаты поиска по запросу "{{search}}"</h2>
     <div class="container wow animate__zoomIn">
         <div class="row row-cols-1 row-cols-lg-2 row-cols-xxl-3 g-4 justify-content-center">
             
